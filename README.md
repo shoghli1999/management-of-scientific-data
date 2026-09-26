@@ -12,9 +12,10 @@ We got three published scientific datasets (zipped in `Datasets/`) and had to un
 ## Running it
 
 ```bash
-pip install pandas matplotlib ydata-profiling
+pip install pandas matplotlib openpyxl ydata-profiling "setuptools<81"
+python Implementations/descriptive-statistics.py
 python Implementations/inconsistencies_and_plots.py
-python Implementations/pandas-profiling.py
+python Implementations/pandas-profiling.py      # writes output_report.html
 ```
 
-Unzip the datasets first. The scripts still use absolute file paths from our machines, so change the path at the top of each script.
+The scripts read the first dataset (`24246_2`) straight from its zip file. `ydata-profiling` still imports `pkg_resources`, which newer versions of `setuptools` no longer include.

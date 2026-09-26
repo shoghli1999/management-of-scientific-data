@@ -1,8 +1,13 @@
+import zipfile
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Read the CSV file
-df = pd.read_csv("/home/maryam/Management/24246_2_Dataset/24246_2_data.csv")
+DATASET = Path(__file__).resolve().parent.parent / "Datasets" / "24246_2_Dataset.zip"
+
+# Read the data sheet straight from the zipped dataset in Datasets/
+df = pd.read_excel(zipfile.ZipFile(DATASET).open("24246_2_data.xlsx"))
 
 # Display the first few rows of the DataFrame
 print(df.head())
